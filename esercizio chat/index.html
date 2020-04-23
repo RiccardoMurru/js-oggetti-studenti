@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <main class="chat">
+        <div class="chat-header">
+            <input class="message-input" type="text" placeholder="Scrivi un messaggio">
+            <button class="enter-button">Invia Messaggio</button>
+        </div>
+        <div class="messages">
+
+        </div>
+    </main>
+
+
+
+    <!-- Templates -->
+    <script id="message-template" type="text/x-handlebars-template">
+        <div class="message {{ status }}">
+          <span class="message-text">{{text}}</span>
+          <span class="message-time">{{time}}</span>
+        </div>
+      </script>
+
+
+    <!-- JS -->
+    <!-- Handlebars -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
+    <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
