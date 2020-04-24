@@ -4,6 +4,15 @@ $(document).ready(function () {
      * Riproduzione chat con handlebars
      */
 
+    /**
+     * Descrizione:
+     * Estendere la chat fatta con handlebars inserendo i messaggi iniziali, 
+     * visibili al caricamento della pagina, generati da un array di oggetti.
+     * Gli oggetti conterranno proprietà come testo e orario
+     * Usiamo Handlebars per la generazione anche di questi messaggi, 
+     * come fatto per i messaggi inseriti dall’utente
+     */
+
     // Referenze
 
     var messageInput = $('.message-input');
@@ -16,6 +25,40 @@ $(document).ready(function () {
     var source = $('#message-template').html();
     var template = Handlebars.compile(source);
 
+
+
+    // gerazione messaggi al caricamento della pagina
+    var messageHistory = [
+        {
+            text: 'Ciao, come stai?',
+            time: '14:44',
+            status: 'sent'
+        },
+        {
+            text: 'Ciao, bene e tu?',
+            time: '14:45',
+            status: 'received'
+        },
+        {
+            text: 'Bene grazie',
+            time: '14:51',
+            status: 'sent'
+        }
+    ];
+
+    for (var i = 0; i < messageHistory.length; i++) {
+        content = {
+            text: messageHistory[i].text,
+            time: messageHistory[i].time,
+            status: messageHistory[i].status
+        };
+
+        var oldMessage = template(content);
+
+        messages.append(oldMessage);  
+    };
+
+    
 
     // al click su bottone invia
     button.click(function() {
